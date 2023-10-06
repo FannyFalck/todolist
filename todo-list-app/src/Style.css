@@ -5,9 +5,46 @@ body{
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+  background-color: rgba(137, 43, 226, 0.572);
 }
 
 
 .App-header{
   text-align: center;
+}
+
+.ToDoform{
+  display: flex;
+  justify-content: center; /* Horisontell centreringsjustering */
+  align-items: center; /* Vertikal centreringsjustering */
+  height: 20vh; 
+  background-color: rgba(245, 218, 68, 0.836);
+  
+  max-width: 650px;
+  max-height: 130px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  
+}
+form input {
+  text-align: left;
+  border-radius: 10px;
+  width: 510px; 
+  height: 40px; 
+  font-size: 16px; 
+  padding: 5px;
+  background-color: rgba(242, 237, 247, 0.957);
+}
+
+form button{
+  padding: 15px ; 
+  margin-left: 5px;
+  border-radius: 10px;
+  background-color: rgba(137, 43, 226, 0.572);
+}
+
+form button:hover{
+  cursor: pointer; 
+
 }
