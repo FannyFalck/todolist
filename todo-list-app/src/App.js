@@ -8,11 +8,25 @@ import React, { useState } from 'react';
 
 function App() {
   const [taskInput, setTaskInput] = useState('')
+  const [tasks, setTasks] = useState([]); // State to store data
+  
+  // const används här istället för att anvädna function, här här används "arrow function" (=>)
+  
+  const handleSubmit = (event) => { 
 
-  function handleSubmit(event){
     event.preventDefault();
-    console.log("hej");
-    alert("Formuläret har skickats");
+    if(taskInput.trim() === '' ) {
+      alert ("Fältet får inte vara tomt!")
+      return;
+    }
+    setTasks([...tasks, taskInput]);
+    setTaskInput('');
+  };
+
+  const handleRemoveTask = (index) => {
+    const newTasks = [...tasks];
+    newTasks.splice(index, 1);
+    setTasks(newTasks); 
   }
   
   return (
@@ -20,19 +34,25 @@ function App() {
       <header className="App-header">
         <h1> <u>Fannys, To do List </u></h1>
       </header>
-      <form className="ToDoform">
+      <form className="ToDoform" onSubmit={handleSubmit}>
         <input type="text"  className="todo-input" placeholder="Vad vill du lägga till idag?" value={taskInput} onChange={(e) => setTaskInput(e.target.value)}/>
         <button type="button" className="SubmitButton" onClick={handleSubmit}>Lägg till </button>
       </form>
       
-      {/* <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#000000" }} />
-      <FontAwesomeIcon icon={faTrash} style={{ color: "#000000" }} /> */}
-      
-
+      {/* För att kunna visa uppgifter  */}
+      <ul className='taskformBackgrond'>
+        {tasks.map((task, index) => (
+          <li key={index}>
+            {task}
+            <button className="trashcan" onClick={() => handleRemoveTask(index)}><FontAwesomeIcon icon={faTrash}  /></button>
+          </li>
+        ))}
+      </ul>
     </div>
 
-    
   );
 }
 
 export default App;
+
+{/* <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#000000" }} /> */}
