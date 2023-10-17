@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'; // För en vanlig ikon
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+import { logMovies } from './test';
+
 import './Style.css';
 
 import React, { useState } from 'react';
@@ -9,6 +11,7 @@ import React, { useState } from 'react';
 function App() {
   const [taskInput, setTaskInput] = useState('')
   const [tasks, setTasks] = useState([]); // State to store data
+  const [state, setState] = useState({"task" : "" });
   
   // const används här istället för att anvädna function, här här används "arrow function" (=>)
   
@@ -29,6 +32,12 @@ function App() {
     setTasks(newTasks); 
   }
   
+  const testfunction = async () => {
+    const task = await logMovies();
+    setState(task)
+
+    
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -44,10 +53,14 @@ function App() {
         {tasks.map((task, index) => (
           <li key={index}>
             {task}
-            <button className="trashcan" onClick={() => handleRemoveTask(index)}><FontAwesomeIcon icon={faTrash}  /></button>
-          </li>
+            <button className="trashcan" onClick={() => handleRemoveTask(index)}> <FontAwesomeIcon icon={faTrash}  /></button>
+          </li> 
+          
         ))}
       </ul>
+
+      <button type="button" className="SubmitButton" onClick={testfunction}>test knapp </button>
+      <p>{state.task}</p>
     </div>
 
   );
