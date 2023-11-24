@@ -31,7 +31,7 @@ connection.query(createTable, (err, rows, fields) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// POST request to insert data into MySQL
+// POST request to insert data into MySQL - är en endppoint 
 app.post('/data', (req, res) => {
   const { todotext } = req.body; // hämtar ut datan som kommer från hemsidan
   console.log(req.body);

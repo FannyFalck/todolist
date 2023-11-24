@@ -1,4 +1,4 @@
-
+// denna fil är till för att skicks till node frn frontend/webbsian. (räkans som frontend me pratar med backend)
 
 export async function sendData(text) {
   await fetch("http://localhost:3001/data", {
