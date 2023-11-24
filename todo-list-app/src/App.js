@@ -39,12 +39,7 @@ function App() {
     setTasks(newTasks);
   }
 
-  const testfunction = async () => {
-    const task = await logMovies();
-    setState(task)
 
-
-  }
   return (
     <div className="App">
       <header className="App-header">
