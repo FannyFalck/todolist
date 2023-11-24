@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'; // För en vanlig ikon
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import { logMovies } from './test';
-
 import './Style.css';
 
 import React, { useState,useEffect } from 'react';
