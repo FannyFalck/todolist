@@ -68,4 +68,6 @@ export default App;
 
 
 
-{/* <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#000000" }} /> */ }
+{ <FontAwesomeIcon icon={faPenToSquare} style={{ color: "#000000" }} /> }
+
+{ <FontAwesomeIcon icon="fa-thin fa-pencil" style={{color: "#0f0f0f" }} /> }

@@ -58,12 +58,29 @@ form button:hover{
   padding-top: 15px;
 }
 
+.taskformBackgrond li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative; 
+}
 
-.taskformBackgrond button{
-background-color: red;
-  font-size: 20px;
-  justify-content: right;
-  
-
+.taskformBackgrond li::before {
+  content: ""; /* Lägg till en tom content */
+  display: block;
+  width: 10px; /* Bredden på bulletpunkten */
+  height: 10px; /* Höjden på bulletpunkten */
+  background-color: black; /* Färg på bulletpunkten */
+  border-radius: 50%; /* För att göra den rund */
+  position: absolute;
+  left: -20px; /* Justera avståndet från vänster */
 } 
+.taskformBackgrond button{
+  background-color: red;
+  font-size: 20px;
+  margin-right: 10px;
+  border-radius: 10%;
+} 
+
 
