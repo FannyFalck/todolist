@@ -1,4 +1,4 @@
-import { sendData, getData } from './utils/fetchHelper';
+import { sendData, getData, getlistheader, UPDATElistheader } from './utils/fetchHelper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import React, { useState, useEffect } from 'react';
@@ -13,6 +13,10 @@ function App() {
 
   useEffect(() => {
     getData(setTasks);
+  }, []);
+
+  useEffect(() => {
+    getlistheader(setListName);
   }, []);
 
   const handleSubmit = (event) => {
@@ -40,11 +44,19 @@ function App() {
 
   const handleListNameChange = (event) => {
     setListName(event.target.value);
+    UPDATElistheader(event.target.value);
   };
 
   const handleListNameSubmit = () => {
     setEditingListName(false);
   };
+
+  const handlerenterlistheader = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault()
+      setEditingListName(false)
+    }
+  }
 
   return (
     <div className="App">
@@ -60,7 +72,7 @@ function App() {
     
       <ul className='taskformBackgrond'>
          <div className="List-header"> {/* Här är kod för rubriken för just listan rubrik  */}
-          {editingListName ? ( <input type="text" value={listName} onChange={handleListNameChange} onBlur={handleListNameSubmit} autoFocus /> ) : (
+          {editingListName ? ( <input type="text" value={listName} onChange={handleListNameChange} onKeyDown={handlerenterlistheader} onBlur={handleListNameSubmit} autoFocus /> ) : (
           <>
             <p> <u>{listName} </u> <FontAwesomeIcon icon={faPencilAlt} onClick={handleListNameEdit} style={{ color: "#0f0f0f", marginLeft: "5px", cursor: 'pointer' }} /> </p> 
             
